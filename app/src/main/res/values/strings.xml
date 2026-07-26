@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">InvestimentoApp</string>
+    <string name="titulo_cadastro">Registrar Movimentação</string>
+    <string name="label_selecionar_ativo">Selecione o Ativo:</string>
+    <string name="label_valor">Valor (R$):</string>
+    <string name="hint_valor">Ex: 150.00</string>
+    <string name="label_tipo_movimentacao">Tipo de Movimentação:</string>
+    <string name="label_aporte">Aporte</string>
+    <string name="label_resgate">Resgate</string>
+    <string name="label_ajuste_rendimento">Tratar como ajuste de rendimento (sem mexer no caixa)</string>
+    <string name="btn_limpar">Limpar</string>
+    <string name="btn_salvar">Salvar</string>
+    <string name="erro_valor_vazio">Por favor, informe o valor da movimentação.</string>
+    <string name="erro_valor_invalido">Valor informado é inválido.</string>
+    <string name="msg_sucesso">Formulário limpo com sucesso.</string>
+    <string name="prompt_ativo">Selecione um ativo</string>
+
+    <string-array name="ativos_disponiveis">
+        <item>Renda Fixa</item>
+        <item>Poupança</item>
+        <item>Cofrinho</item>
+        <item>Conta Corrente</item>
+        <item>PETR4 (Petrobras)</item>
+    </string-array>
+</resources>
