@@ -25,7 +25,7 @@ public class CadastroActivity extends AppCompatActivity {
     private void configurarSpinner() {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
-                R.array.ativos_disponiveis,
+                R.array.n_ativos,
                 android.R.layout.simple_spinner_item
         );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -60,7 +60,7 @@ public class CadastroActivity extends AppCompatActivity {
 
         String ativo = binding.spnAtivo.getSelectedItem().toString();
         int idRadioSelecionado = binding.rgTipoMovimentacao.getCheckedRadioButtonId();
-        String tipoMovimentacao = (idRadioSelecionado == R.id.rbAporte) ? 
+        String tipoMovimentacao = (idRadioSelecionado == R.id.rbAporte) ?
                 getString(R.string.label_aporte) : getString(R.string.label_resgate);
 
         boolean isAjuste = binding.cbAjusteRendimento.isChecked();

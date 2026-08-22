@@ -15,11 +15,55 @@
     <string name="msg_sucesso">Formulário limpo com sucesso.</string>
     <string name="prompt_ativo">Selecione um ativo</string>
 
-    <string-array name="ativos_disponiveis">
+    <string-array name="n_ativos">
+        <item>Tesouro Selic 2026</item>
+        <item>CDB Banco Inter</item>
+        <item>LCI Caixa</item>
+        <item>LCI Caixa</item>
+        <item>Fundo DI Premium</item>
+        <item>PETR4</item>
+        <item>PETR4</item>
+        <item>PETR4</item>
+        <item>PETR4</item>
+        <item>MXRF11</item>
+    </string-array>
+
+    <string-array name="c_ativos">
         <item>Renda Fixa</item>
-        <item>Poupança</item>
-        <item>Cofrinho</item>
-        <item>Conta Corrente</item>
-        <item>PETR4 (Petrobras)</item>
+        <item>Renda Fixa</item>
+        <item>Renda Fixa</item>
+        <item>Fundo de Investimento</item>
+        <item>Renda Variável</item>
+        <item>Renda Variável</item>
+        <item>Renda Variável</item>
+        <item>Renda Variável</item>
+        <item>Fundo Imobiliário</item>
+        <item>Fundo Imobiliário</item>
+    </string-array>
+
+    <string-array name="r_ativos">
+        <item>Baixo</item>
+        <item>Baixo</item>
+        <item>Baixo</item>
+        <item>Médio</item>
+        <item>Alto</item>
+        <item>Alto</item>
+        <item>Alto</item>
+        <item>Alto</item>
+        <item>Médio</item>
+        <item>Médio</item>
+    </string-array>
+
+    <string-array name="v_minimos">
+        <item>R$ 135,00</item>
+        <item>R$ 100,00</item>
+        <item>R$ 1.000,00</item>
+        <item>R$ 500,00</item>
+        <item>R$ 38,00</item>
+        <item>R$ 62,00</item>
+        <item>R$ 34,00</item>
+        <item>R$ 15,00</item>
+        <item>R$ 160,00</item>
+        <item>R$ 10,50</item>
     </string-array>
 </resources>
