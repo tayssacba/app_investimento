@@ -1,9 +1,75 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.InvestimentoApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.InvstApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/surface</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/black</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif</item>
     </style>
 
-    <style name="Theme.InvestimentoApp" parent="Base.Theme.InvestimentoApp" />
+    <style name="TextAppearance.Label" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">@color/muted_foreground</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextAppearance.Value" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextAppearance.SubValue" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">@color/muted_foreground</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Widget.InvstApp.Button" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="Widget.InvstApp.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/border</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Widget.InvstApp.Button.OutlinedActive" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Widget.InvstApp.BottomNav" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/white</item>
+        <item name="itemIconTint">@color/white</item>
+        <item name="itemTextColor">@color/white</item>
+        <item name="elevation">0dp</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.BottomNav</item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.BottomNav</item>
+    </style>
+
+    <style name="TextAppearance.BottomNav" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">10sp</item>
+    </style>
 </resources>

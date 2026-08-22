@@ -10,7 +10,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.InvestimentoApp">
+        android:theme="@style/Theme.InvstApp">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".AutoriaActivity"
+            android:parentActivityName=".ListaInvestimentosActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CadastroActivity"
+            android:exported="false" />
+
         <activity
             android:name=".ListaInvestimentosActivity"
             android:exported="true">
@@ -20,14 +35,5 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".CadastroActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
     </application>
-
 </manifest>

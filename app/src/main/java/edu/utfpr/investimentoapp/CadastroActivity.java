@@ -1,5 +1,6 @@
 package edu.utfpr.investimentoapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
@@ -62,22 +63,17 @@ public class CadastroActivity extends AppCompatActivity {
         int idRadioSelecionado = binding.rgTipoMovimentacao.getCheckedRadioButtonId();
         String tipoMovimentacao = (idRadioSelecionado == R.id.rbAporte) ?
                 getString(R.string.label_aporte) : getString(R.string.label_resgate);
-
         boolean isAjuste = binding.cbAjusteRendimento.isChecked();
 
-        StringBuilder mensagem = new StringBuilder();
-        mensagem.append(tipoMovimentacao)
-                .append(" de R$ ")
-                .append(valorDigitado)
-                .append(" em ")
-                .append(ativo)
-                .append(" registrado!");
+        Intent intentRetorno = new Intent();
 
-        if (isAjuste) {
-            mensagem.append(" (").append(getString(R.string.label_ajuste_rendimento)).append(")");
-        }
+        intentRetorno.putExtra("nome", ativo);
+        intentRetorno.putExtra("categoria", tipoMovimentacao);
+        intentRetorno.putExtra("risco", isAjuste ? "Ajuste" : "Padrão");
+        intentRetorno.putExtra("valorMinimo", "R$ " + valorDigitado);
 
-        Toast.makeText(this, mensagem.toString(), Toast.LENGTH_LONG).show();
+        setResult(RESULT_OK, intentRetorno);
+        finish();
     }
 
     private void limparFormulario() {
