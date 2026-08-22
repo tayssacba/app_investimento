@@ -1,4 +1,12 @@
 <resources>
+
+    <!--Barra navegação que fica embaixo-->
+    <string name="nav_home">Início</string>
+    <string name="nav_corretoras">Corretoras</string>
+    <string name="nav_ativos">Ativos</string>
+    <string name="nav_transacoes">Movimentos</string>
+
+    <!--ainda preciso mexer nisso e padronizar bonitinho-->
     <string name="app_name">InvestimentoApp</string>
     <string name="titulo_cadastro">Registrar Movimentação</string>
     <string name="label_selecionar_ativo">Selecione o Ativo:</string>
