@@ -2,154 +2,219 @@ package edu.utfpr.investimentoapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import edu.utfpr.investimentoapp.databinding.ActivityCadastroBinding;
 
 public class CadastroActivity extends AppCompatActivity {
 
-    private ActivityCadastroBinding binding;
-    private int posicaoEdicao = -1;
+    public static final String EXTRA_ATIVO = "extra_ativo";
+    public static final String EXTRA_MODO = "extra_modo";
+    public static final int MODO_INSERIR = 0;
+    public static final int MODO_EDITAR = 1;
+
+    private EditText etNomeProduto;
+    private EditText etValorInicial;
+    private Spinner spinnerCategoria;
+    private Spinner spinnerInstituicao;
+    private RadioGroup rgTipoRenda;
+    private RadioButton rbRendaFixa;
+    private RadioButton rbRendaVariavel;
+    private CheckBox cbFavorito;
+    private EditText etAnotacoes;
+
+    private Ativo ativoEmEdicao = null;
+    private int modo = MODO_INSERIR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityCadastroBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_cadastro);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        configurarSpinner();
-        verificarModoEdicao();
-    }
+        bindViews();
+        configurarSpinners();
 
-    private void verificarModoEdicao() {
-        Intent it = getIntent();
-        if (it.hasExtra("POSICAO")) {
-            posicaoEdicao = it.getIntExtra("POSICAO", -1);
-            setTitle("Editar Investimento");
-        }
-
-        String valorString = it.getStringExtra("VALOR");
-        if (valorString != null) {
-            binding.etValor.setText(valorString.replace("R$ ", ""));
-        }
-
-        String categoria = it.getStringExtra("CATEGORIA");
-        if (categoria != null) {
-            if (categoria.contains("Aporte")) {
-                binding.rgTipoMovimentacao.check(R.id.rbAporte);
-            } else if (categoria.contains("Resgate")) {
-                binding.rgTipoMovimentacao.check(R.id.rbResgate);
-            }
-        }
-
-        String risco = it.getStringExtra("RISCO");
-        if (risco != null && risco.contains("Ajuste Contábil")) {
-            binding.cbAjusteRendimento.setChecked(true);
-        }
-
-        String nomeAtivo = it.getStringExtra("NOME");
-        if (nomeAtivo != null) {
-            for (int i = 0; i < binding.spnAtivo.getCount(); i++) {
-                if (binding.spnAtivo.getItemAtPosition(i).toString().equals(nomeAtivo)) {
-                    binding.spnAtivo.setSelection(i);
-                    break;
-                }
-            }
+        modo = getIntent().getIntExtra(EXTRA_MODO, MODO_INSERIR);
+        if (modo == MODO_EDITAR) {
+            ativoEmEdicao = (Ativo) getIntent().getSerializableExtra(EXTRA_ATIVO);
+            setTitle(getString(R.string.title_editar));
+            preencherFormulario(ativoEmEdicao);
         } else {
-            setTitle("Registrar Movimentação");
+            setTitle(getString(R.string.title_cadastro));
         }
+
+        findViewById(R.id.btn_limpar).setOnClickListener(v -> limparFormulario());
+        findViewById(R.id.btn_salvar).setOnClickListener(v -> salvar());
     }
 
-    private void configurarSpinner() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this,
-                R.array.n_ativos,
-                android.R.layout.simple_spinner_item
-        );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        binding.spnAtivo.setAdapter(adapter);
-    }
-
+    // ── Options Menu ──────────────────────────────────────────────────────────
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.cadastro_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_cadastro, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-        if (id == R.id.menu_salvar) {
-            processarCadastro();
+        if (id == android.R.id.home) {
+            setResult(RESULT_CANCELED);
+            finish();
+            return true;
+        } else if (id == R.id.menu_salvar) {
+            salvar();
             return true;
         } else if (id == R.id.menu_limpar) {
             limparFormulario();
-            return true;
-        } else if (id == android.R.id.home) {
-            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void processarCadastro() {
-        String valorDigitado = binding.etValor.getText().toString().trim();
+    // ── Lógica do formulário ──────────────────────────────────────────────────
+    private void salvar() {
+        boolean valido = true;
 
-        if (valorDigitado.isEmpty()) {
-            binding.tilValor.setError(getString(R.string.erro_valor_vazio));
+        String nome = etNomeProduto.getText().toString().trim();
+        if (TextUtils.isEmpty(nome)) {
+            Toast.makeText(getApplicationContext(), R.string.erro_nome_obrigatorio, Toast.LENGTH_SHORT).show();
+            etNomeProduto.requestFocus();
             return;
         }
 
+        String valorStr = etValorInicial.getText().toString().replace(",", ".").trim();
+        double valor;
         try {
-            double valor = Double.parseDouble(valorDigitado);
-            if (valor <= 0) {
-                binding.tilValor.setError(getString(R.string.erro_valor_invalido));
-                return;
-            }
+            valor = Double.parseDouble(valorStr);
+            if (valor <= 0) throw new NumberFormatException();
         } catch (NumberFormatException e) {
-            binding.tilValor.setError(getString(R.string.erro_valor_invalido));
+            Toast.makeText(getApplicationContext(), R.string.erro_valor_invalido, Toast.LENGTH_SHORT).show();
+            etValorInicial.requestFocus();
             return;
         }
 
-        binding.tilValor.setError(null);
+        if (rgTipoRenda.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), R.string.erro_tipo_renda, Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        String ativo = binding.spnAtivo.getSelectedItem().toString();
-        int idRadioSelecionado = binding.rgTipoMovimentacao.getCheckedRadioButtonId();
-        String tipoMovimentacao = (idRadioSelecionado == R.id.rbAporte) ?
-                getString(R.string.label_aporte) : getString(R.string.label_resgate);
-        boolean isAjuste = binding.cbAjusteRendimento.isChecked();
+        String categoria = spinnerCategoria.getSelectedItem().toString();
+        String instituicao = spinnerInstituicao.getSelectedItem().toString();
+        String tipoRenda = rbRendaFixa.isChecked()
+                ? getString(R.string.radio_renda_fixa)
+                : getString(R.string.radio_renda_variavel);
+        boolean favorito = cbFavorito.isChecked();
+        String anotacoes = etAnotacoes.getText().toString().trim();
 
-        String riscoFormatado = isAjuste ? "Ajuste Contábil" : "Risco Padrão";
-        String valorFormatado = "R$ " + valorDigitado;
+        Ativo ativo;
+        if (ativoEmEdicao != null) {
+            ativo = ativoEmEdicao;
+        } else {
+            ativo = new Ativo();
+        }
+        ativo.setNomeProduto(nome);
+        ativo.setCategoria(categoria);
+        ativo.setInstituicao(instituicao);
+        ativo.setTipoRenda(tipoRenda);
+        ativo.setFavorito(favorito);
+        ativo.setValorInicial(valor);
+        ativo.setAnotacoes(anotacoes);
 
-        Intent intentRetorno = new Intent();
-        intentRetorno.putExtra("NOME", ativo);
-        intentRetorno.putExtra("CATEGORIA", tipoMovimentacao);
-        intentRetorno.putExtra("RISCO", riscoFormatado);
-        intentRetorno.putExtra("VALOR", valorFormatado);
-        intentRetorno.putExtra("POSICAO", posicaoEdicao);
+        // Devolve resultado para ListagemActivity
+        Intent result = new Intent();
+        result.putExtra(EXTRA_ATIVO, ativo);
+        result.putExtra(EXTRA_MODO, modo);
+        setResult(RESULT_OK, result);
 
-        setResult(RESULT_OK, intentRetorno);
+        String msg = modo == MODO_EDITAR
+                ? getString(R.string.toast_atualizado)
+                : getString(R.string.toast_salvo);
+        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
         finish();
     }
 
     private void limparFormulario() {
-        binding.etValor.setText("");
-        binding.tilValor.setError(null);
-        binding.rgTipoMovimentacao.check(R.id.rbAporte);
-        binding.cbAjusteRendimento.setChecked(false);
-        binding.spnAtivo.setSelection(0);
-        Toast.makeText(getApplicationContext(), R.string.msg_sucesso, Toast.LENGTH_SHORT).show();
+        etNomeProduto.setText("");
+        etValorInicial.setText("");
+        etAnotacoes.setText("");
+
+        rgTipoRenda.clearCheck();
+
+        cbFavorito.setChecked(false);
+
+        spinnerCategoria.setSelection(0);
+        spinnerInstituicao.setSelection(0);
+
+        etNomeProduto.requestFocus();
+
+        Toast.makeText(this, R.string.toast_limpar, Toast.LENGTH_SHORT).show();
+    }
+
+    private void preencherFormulario(Ativo a) {
+        if (a == null) return;
+        etNomeProduto.setText(a.getNomeProduto());
+        etValorInicial.setText(String.valueOf(a.getValorInicial()));
+        etAnotacoes.setText(a.getAnotacoes());
+        cbFavorito.setChecked(a.isFavorito());
+
+        String[] cats = getResources().getStringArray(R.array.categorias);
+        for (int i = 0; i < cats.length; i++) {
+            if (cats[i].equals(a.getCategoria())) {
+                spinnerCategoria.setSelection(i);
+                break;
+            }
+        }
+
+        String[] insts = getResources().getStringArray(R.array.instituicoes);
+        for (int i = 0; i < insts.length; i++) {
+            if (insts[i].equals(a.getInstituicao())) {
+                spinnerInstituicao.setSelection(i);
+                break;
+            }
+        }
+
+        if (getString(R.string.radio_renda_fixa).equals(a.getTipoRenda())) {
+            rbRendaFixa.setChecked(true);
+        } else if (getString(R.string.radio_renda_variavel).equals(a.getTipoRenda())) {
+            rbRendaVariavel.setChecked(true);
+        }
+    }
+
+    // ── Setup ─────────────────────────────────────────────────────────────────
+    private void bindViews() {
+        etNomeProduto = findViewById(R.id.et_nome_produto);
+        etValorInicial = findViewById(R.id.et_valor_inicial);
+        spinnerCategoria = findViewById(R.id.spinner_categoria);
+        spinnerInstituicao = findViewById(R.id.spinner_instituicao);
+        rgTipoRenda = findViewById(R.id.rg_tipo_renda);
+        rbRendaFixa = findViewById(R.id.rb_renda_fixa);
+        rbRendaVariavel = findViewById(R.id.rb_renda_variavel);
+        cbFavorito = findViewById(R.id.cb_favorito);
+        etAnotacoes = findViewById(R.id.et_anotacoes);
+    }
+
+    private void configurarSpinners() {
+        ArrayAdapter<CharSequence> adCat = ArrayAdapter.createFromResource(
+                this, R.array.categorias, android.R.layout.simple_spinner_item);
+        adCat.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategoria.setAdapter(adCat);
+
+        ArrayAdapter<CharSequence> adInst = ArrayAdapter.createFromResource(
+                this, R.array.instituicoes, android.R.layout.simple_spinner_item);
+        adInst.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerInstituicao.setAdapter(adInst);
     }
 }

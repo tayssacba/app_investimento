@@ -1,13 +1,18 @@
 package edu.utfpr.investimentoapp;
 
+import static androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.AbsListView;
+import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -21,6 +26,9 @@ public class ListaInvestimentosActivity extends AppCompatActivity {
     private ArrayList<Investimento> listaInvestimentos;
     private InvestimentoAdapter adapter;
     private ActivityResultLauncher<Intent> cadastroLauncher;
+    private RadioGroup rgOrdenacao;
+    private CheckBox cbApenasFavoritos;
+    private CheckBox cbMostrarValores;
 
     private final ActivityResultLauncher<Intent> launcherNovoInvestimento = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -44,15 +52,57 @@ public class ListaInvestimentosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_investimentos);
-        setTitle("Meus Investimentos");
+        setOnApplyWindowInsetsListener(findViewById(android.R.id.content), (v, insets) -> {
+            androidx.core.graphics.Insets systemBars = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+        setTitle(getString(R.string.title_listagem));
 
         listaInvestimentos = new ArrayList<>();
         ListView listView = findViewById(R.id.lvInvestimentos);
         adapter = new InvestimentoAdapter(this, listaInvestimentos);
         listView.setAdapter(adapter);
 
+        android.widget.TextView tvVazio = findViewById(R.id.tvVazio);
+        listView.setEmptyView(tvVazio);
+
         configurarLauncher();
         configurarMenuContextual(listView);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        aplicarConfiguracoes();
+    }
+
+    private void aplicarConfiguracoes() {
+        if (listaInvestimentos == null || listaInvestimentos.isEmpty()) return;
+
+        SharedPreferences prefs = getSharedPreferences("invst_prefs", MODE_PRIVATE);
+        String sort = prefs.getString("sort_order", "nome");
+
+        java.util.Collections.sort(listaInvestimentos, (a, b) -> {
+            if ("valor".equals(sort)) {
+                double valA = 0.0;
+                double valB = 0.0;
+                try {
+                    valA = Double.parseDouble(a.getValorMinimo().replace("R$ ", "").replace(".", "").replace(",", "."));
+                    valB = Double.parseDouble(b.getValorMinimo().replace("R$ ", "").replace(".", "").replace(",", "."));
+                } catch (Exception ignored) {
+                }
+
+                return Double.compare(valB, valA);
+
+            } else if ("categoria".equals(sort)) {
+                return a.getCategoria().compareToIgnoreCase(b.getCategoria());
+            } else {
+                return a.getNome().compareToIgnoreCase(b.getNome());
+            }
+        });
+
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -69,6 +119,9 @@ public class ListaInvestimentosActivity extends AppCompatActivity {
             return true;
         } else if (item.getItemId() == R.id.menu_sobre) {
             startActivity(new Intent(this, AutoriaActivity.class));
+            return true;
+        } else if (item.getItemId() == R.id.menu_configuracoes) {
+            startActivity(new Intent(this, ConfiguracoesActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -111,7 +164,7 @@ public class ListaInvestimentosActivity extends AppCompatActivity {
                 // Guarda a posição do item que foi segurado
                 if (checked) {
                     posicaoSelecionada = position;
-                    mode.setTitle("1 selecionado");
+                    mode.setTitle(getString(R.string.toast_item_clicado));
                 }
             }
 
@@ -149,7 +202,7 @@ public class ListaInvestimentosActivity extends AppCompatActivity {
                     adapter.notifyDataSetChanged();
                     mode.finish();
 
-                    Toast.makeText(getApplicationContext(), "Item excluído", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.toast_excluido), Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 return false;

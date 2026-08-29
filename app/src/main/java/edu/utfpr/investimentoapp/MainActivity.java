@@ -58,11 +58,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadFragment(Fragment fragment, String tag, String title) {
         tvPageTitle.setText(title);
-        if (fragment != null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, fragment, tag)
-                    .commit();
-        }
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment, tag)
+                .commit();
     }
 }

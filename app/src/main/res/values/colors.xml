@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="background">#FFFFFF</color>
+    <color name="foreground">#111111</color>
     <color name="muted_foreground">#999999</color>
     <color name="border">#EBEBEB</color>
     <color name="surface">#F5F5F5</color>
