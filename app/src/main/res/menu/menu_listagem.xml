@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- MenuItem "Adicionar" com ícone, showAsAction=ifRoom -->
+    <item
+        android:id="@+id/menu_adicionar"
+        android:title="@string/menu_adicionar"
+        android:icon="@drawable/ic_plus"
+        app:showAsAction="ifRoom" />
+
+    <!-- MenuItem "Configurações" com ícone, showAsAction=ifRoom -->
+    <item
+        android:id="@+id/menu_configuracoes"
+        android:title="@string/menu_configuracoes"
+        android:icon="@drawable/ic_settings"
+        app:showAsAction="ifRoom" />
+
+    <!-- MenuItem "Sobre" sem ícone, showAsAction=never -->
+    <item
+        android:id="@+id/menu_sobre"
+        android:title="@string/menu_sobre"
+        app:showAsAction="never" />
+
+</menu>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- MenuItem "Salvar" com ícone-->
+    <item
+        android:id="@+id/menu_salvar"
+        android:title="@string/btn_salvar"
+        android:icon="@drawable/ic_save"
+        app:showAsAction="ifRoom" />
+
+    <!-- MenuItem "Limpar" com ícone-->
+    <item
+        android:id="@+id/menu_limpar"
+        android:title="@string/btn_limpar"
+        android:icon="@drawable/ic_clear"
+        app:showAsAction="ifRoom" />
+
+</menu>

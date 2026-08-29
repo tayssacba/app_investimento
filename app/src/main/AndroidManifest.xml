@@ -19,11 +19,15 @@
 
         <activity
             android:name=".AutoriaActivity"
-            android:parentActivityName=".ListaInvestimentosActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ListaInvestimentosActivity" />
 
         <activity
             android:name=".CadastroActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ConfiguracoesActivity"
             android:exported="false" />
 
         <activity

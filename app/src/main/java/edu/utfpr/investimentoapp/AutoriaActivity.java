@@ -16,7 +16,7 @@ public class AutoriaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_autoria);
 
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Sobre");
+            setTitle(getString(R.string.menu_sobre));
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 

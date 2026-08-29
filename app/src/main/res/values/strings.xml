@@ -1,77 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Default language: English -->
 <resources>
+    <string name="app_name">Invst.app</string>
+    <string name="app_version">Version 1.0.0</string>
 
-    <!--Barra navegação que fica embaixo-->
-    <string name="nav_home">Início</string>
-    <string name="nav_corretoras">Corretoras</string>
-    <string name="nav_ativos">Ativos</string>
-    <string name="nav_transacoes">Movimentos</string>
+    <!-- Navigation -->
+    <string name="nav_listagem">Assets</string>
+    <string name="nav_sobre">About</string>
+    <string name="nav_config">Settings</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_corretoras"></string>
+    <string name="nav_transacoes"></string>
+    <string name="nav_ativos"></string>
 
-    <!--ainda preciso mexer nisso e padronizar bonitinho-->
-    <string name="app_name">InvestimentoApp</string>
-    <string name="titulo_cadastro">Registrar Movimentação</string>
-    <string name="label_selecionar_ativo">Selecione o Ativo:</string>
-    <string name="label_valor">Valor (R$):</string>
-    <string name="hint_valor">Ex: 150.00</string>
-    <string name="label_tipo_movimentacao">Tipo de Movimentação:</string>
-    <string name="label_aporte">Aporte</string>
-    <string name="label_resgate">Resgate</string>
-    <string name="label_ajuste_rendimento">Tratar como ajuste de rendimento (sem mexer no caixa)</string>
-    <string name="btn_limpar">Limpar</string>
-    <string name="btn_salvar">Salvar</string>
-    <string name="erro_valor_vazio">Por favor, informe o valor da movimentação.</string>
-    <string name="erro_valor_invalido">Valor informado é inválido.</string>
-    <string name="msg_sucesso">Formulário limpo com sucesso.</string>
-    <string name="prompt_ativo">Selecione um ativo</string>
 
+    <!-- Listagem Activity -->
+    <string name="title_listagem">My Assets</string>
+    <string name="menu_adicionar">Add</string>
+    <string name="menu_sobre">About</string>
+    <string name="menu_configuracoes">Settings</string>
+    <string name="patrimonio_total">Total portfolio</string>
+    <string name="nenhum_ativo">No assets found.</string>
+    <string name="btn_adicionar">Add</string>
+
+    <!-- Context menu -->
+    <string name="menu_editar">Edit</string>
+    <string name="menu_excluir">Delete</string>
+    <string name="confirm_excluir_titulo">Delete asset</string>
+    <string name="confirm_excluir_msg">Are you sure you want to delete this asset?</string>
+    <string name="confirm_sim">Yes</string>
+    <string name="confirm_nao">No</string>
+    <string name="toast_excluido">Asset deleted</string>
+
+    <!-- Cadastro Activity -->
+    <string name="title_cadastro">Add Asset</string>
+    <string name="title_editar">Edit Asset</string>
+    <string name="label_nome_produto">Product Name *</string>
+    <string name="hint_nome_produto">Ex: Tesouro Selic 2027</string>
+    <string name="label_valor_inicial">Initial Value (R$) *</string>
+    <string name="hint_valor">0.00</string>
+    <string name="label_categoria">Category</string>
+    <string name="label_instituicao">Institution</string>
+    <string name="label_tipo_renda">Income Type *</string>
+    <string name="radio_renda_fixa">Fixed Income</string>
+    <string name="radio_renda_variavel">Variable Income</string>
+    <string name="label_favorito">Mark as favorite</string>
+    <string name="label_anotacoes">Notes</string>
+    <string name="hint_anotacoes">Observations about the asset…</string>
+    <string name="btn_salvar">Save</string>
+    <string name="btn_limpar">Clear</string>
+    <string name="toast_limpar">Form cleared</string>
+    <string name="toast_salvo">Asset saved</string>
+    <string name="toast_atualizado">Asset updated</string>
+    <string name="erro_nome_obrigatorio">Product name is required</string>
+    <string name="erro_valor_invalido">Invalid initial value</string>
+    <string name="erro_tipo_renda">Please select an income type</string>
+    <string name="erro_formulario">Error: please fix the highlighted fields</string>
+
+    <!-- Tela de Autoria -->
+    <string name="autoria_versao">Version 1.0.0</string>
+    <string name="autoria_secao_sobre">ABOUT THE APP</string>
+    <string name="autoria_desc_1">InvestmentApp is a personal application for investment control. It allows registering brokers, adding financial assets, and tracking the history of deposits and withdrawals.</string>
+    <string name="autoria_desc_2">Developed as an academic project for the Mobile Java Development course, focusing on minimalist usability.</string>
+    <string name="autoria_secao_dev">DEVELOPER</string>
+    <string name="autoria_dev_cargo">QA / Future Dev</string>
+    <string name="autoria_secao_inst">INSTITUTION</string>
+    <string name="autoria_inst_nome">Federal University of Technology of Paraná</string>
+    <string name="autoria_curso">Specialization in Java Technology - Class XXXIII</string>
+    <string name="autoria_disciplina">Course: Mobile Java Development</string>
+    <string name="autoria_bloco">Block 4</string>
+    <string name="autoria_direitos">© 2026 Tayssa Asakawa. All rights reserved.</string>
+
+    <!-- Configurações Activity -->
+    <string name="title_configuracoes">Settings</string>
+    <string name="config_ordenacao">LIST ORDERING</string>
+    <string name="config_por_nome">By name (A–Z)</string>
+    <string name="config_por_valor">By value (highest first)</string>
+    <string name="config_por_categoria">By category</string>
+    <string name="config_preferencias">PREFERENCES</string>
+    <string name="config_apenas_favoritos">Show only favorites</string>
+    <string name="config_mostrar_valores">Show values in list</string>
+    <string name="config_salva">Setting saved</string>
+    <string name="config_info">Settings are automatically saved to the device.</string>
+
+    <!-- Toast messages -->
+    <string name="toast_item_clicado">Selected: %1$s</string>
+
+    <!-- Arrays Mockados -->
     <string-array name="n_ativos">
-        <item>Tesouro Selic 2026</item>
-        <item>CDB Banco Inter</item>
-        <item>LCI Caixa</item>
-        <item>LCI Caixa</item>
-        <item>Fundo DI Premium</item>
-        <item>PETR4</item>
-        <item>PETR4</item>
-        <item>PETR4</item>
+        <item>Treasury Bond 2026</item>
+        <item>Inter Bank CDB</item>
+        <item>Caixa LCI</item>
+        <item>DI Premium Fund</item>
         <item>PETR4</item>
         <item>MXRF11</item>
-    </string-array>
-
-    <string-array name="c_ativos">
-        <item>Renda Fixa</item>
-        <item>Renda Fixa</item>
-        <item>Renda Fixa</item>
-        <item>Fundo de Investimento</item>
-        <item>Renda Variável</item>
-        <item>Renda Variável</item>
-        <item>Renda Variável</item>
-        <item>Renda Variável</item>
-        <item>Fundo Imobiliário</item>
-        <item>Fundo Imobiliário</item>
-    </string-array>
-
-    <string-array name="r_ativos">
-        <item>Baixo</item>
-        <item>Baixo</item>
-        <item>Baixo</item>
-        <item>Médio</item>
-        <item>Alto</item>
-        <item>Alto</item>
-        <item>Alto</item>
-        <item>Alto</item>
-        <item>Médio</item>
-        <item>Médio</item>
-    </string-array>
-
-    <string-array name="v_minimos">
-        <item>R$ 135,00</item>
-        <item>R$ 100,00</item>
-        <item>R$ 1.000,00</item>
-        <item>R$ 500,00</item>
-        <item>R$ 38,00</item>
-        <item>R$ 62,00</item>
-        <item>R$ 34,00</item>
-        <item>R$ 15,00</item>
-        <item>R$ 160,00</item>
-        <item>R$ 10,50</item>
     </string-array>
 </resources>

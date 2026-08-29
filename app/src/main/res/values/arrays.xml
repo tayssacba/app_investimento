@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Categorias de ativo (Spinner) -->
+    <string-array name="categorias">
+        <item>Renda Fixa</item>
+        <item>Ações</item>
+        <item>FIIs</item>
+        <item>Cripto</item>
+        <item>Internacional</item>
+        <item>Outros</item>
+    </string-array>
+
+    <!-- Instituições / Corretoras (Spinner) -->
+    <string-array name="instituicoes">
+        <item>XP Investimentos</item>
+        <item>Nubank</item>
+        <item>Inter</item>
+        <item>BTG Pactual</item>
+        <item>Itaú</item>
+        <item>Bradesco</item>
+        <item>Rico</item>
+        <item>Toro Investimentos</item>
+        <item>Mercado Bitcoin</item>
+        <item>Easynvest</item>
+    </string-array>
+
+    <!-- Nomes dos 10 ativos pré-carregados -->
+    <string-array name="ativos_nomes">
+        <item>Tesouro Selic 2027</item>
+        <item>PETR4</item>
+        <item>MXRF11</item>
+        <item>Nuconta RDB</item>
+        <item>IVVB11</item>
+        <item>Bitcoin</item>
+        <item>CDB BTG 120% CDI</item>
+        <item>VALE3</item>
+        <item>LCA Itaú 92% CDI</item>
+        <item>HGLG11</item>
+    </string-array>
+
+    <!-- Categorias dos 10 ativos pré-carregados (índices mapeados para categorias[]) -->
+    <string-array name="ativos_categorias">
+        <item>Renda Fixa</item>
+        <item>Ações</item>
+        <item>FIIs</item>
+        <item>Renda Fixa</item>
+        <item>Internacional</item>
+        <item>Cripto</item>
+        <item>Renda Fixa</item>
+        <item>Ações</item>
+        <item>Renda Fixa</item>
+        <item>FIIs</item>
+    </string-array>
+
+    <!-- Instituições dos 10 ativos -->
+    <string-array name="ativos_instituicoes">
+        <item>XP Investimentos</item>
+        <item>XP Investimentos</item>
+        <item>Nubank</item>
+        <item>Nubank</item>
+        <item>Inter</item>
+        <item>Mercado Bitcoin</item>
+        <item>BTG Pactual</item>
+        <item>XP Investimentos</item>
+        <item>Itaú</item>
+        <item>BTG Pactual</item>
+    </string-array>
+
+    <!-- Tipo de renda dos 10 ativos -->
+    <string-array name="ativos_tipos_renda">
+        <item>Renda Fixa</item>
+        <item>Renda Variável</item>
+        <item>Renda Variável</item>
+        <item>Renda Fixa</item>
+        <item>Renda Variável</item>
+        <item>Renda Variável</item>
+        <item>Renda Fixa</item>
+        <item>Renda Variável</item>
+        <item>Renda Fixa</item>
+        <item>Renda Variável</item>
+    </string-array>
+
+    <!-- Valores iniciais dos 10 ativos (em string, converter para double no Java) -->
+    <string-array name="ativos_valores">
+        <item>14820.00</item>
+        <item>19210.00</item>
+        <item>12288.00</item>
+        <item>8500.00</item>
+        <item>7961.00</item>
+        <item>5200.00</item>
+        <item>10000.00</item>
+        <item>18564.00</item>
+        <item>6000.00</item>
+        <item>9200.00</item>
+    </string-array>
+
+    <!-- Anotações dos 10 ativos -->
+    <string-array name="ativos_anotacoes">
+        <item>Reserva de emergência</item>
+        <item></item>
+        <item>Dividendos mensais</item>
+        <item></item>
+        <item>ETF S&amp;P 500</item>
+        <item>Alta volatilidade</item>
+        <item>Vence em 2027</item>
+        <item></item>
+        <item>Isento de IR</item>
+        <item>FII de logística</item>
+    </string-array>
+
+    <!-- Favoritos (true/false) dos 10 ativos -->
+    <string-array name="ativos_favoritos">
+        <item>true</item>
+        <item>false</item>
+        <item>true</item>
+        <item>false</item>
+        <item>true</item>
+        <item>false</item>
+        <item>false</item>
+        <item>true</item>
+        <item>false</item>
+        <item>false</item>
+    </string-array>
+
+</resources>

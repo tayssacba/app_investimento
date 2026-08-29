@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Lingua Opzionale: Italiano -->
+<resources>
+    <string name="app_name">Invst.app</string>
+    <string name="app_version">Versione 1.0.0</string>
+
+    <!-- Navigazione -->
+    <string name="nav_listagem">Asset</string>
+    <string name="nav_sobre">Informazioni</string>
+    <string name="nav_config">Impostazioni</string>
+
+    <!-- Listagem Activity -->
+    <string name="title_listagem">I Miei Asset</string>
+    <string name="menu_adicionar">Aggiungi</string>
+    <string name="menu_sobre">Informazioni</string>
+    <string name="menu_configuracoes">Impostazioni</string>
+    <string name="patrimonio_total">Patrimonio totale</string>
+    <string name="nenhum_ativo">Nessun asset trovato.</string>
+    <string name="btn_adicionar">Aggiungi</string>
+
+    <!-- Menu Contestuale -->
+    <string name="menu_editar">Modifica</string>
+    <string name="menu_excluir">Elimina</string>
+    <string name="confirm_excluir_titulo">Elimina asset</string>
+    <string name="confirm_excluir_msg">Sei sicuro di voler eliminare questo asset?</string>
+    <string name="confirm_sim">Sì</string>
+    <string name="confirm_nao">No</string>
+    <string name="toast_excluido">Asset eliminato</string>
+
+    <!-- Cadastro Activity -->
+    <string name="title_cadastro">Aggiungi Asset</string>
+    <string name="title_editar">Modifica Asset</string>
+    <string name="label_nome_produto">Nome del Prodotto *</string>
+    <string name="hint_nome_produto">Es: Tesouro Selic 2027</string>
+    <string name="label_valor_inicial">Valore Iniziale (R$) *</string>
+    <string name="hint_valor">0,00</string>
+    <string name="label_categoria">Categoria</string>
+    <string name="label_instituicao">Istituzione</string>
+    <string name="label_tipo_renda">Tipo di Reddito *</string>
+    <string name="radio_renda_fixa">Reddito Fisso</string>
+    <string name="radio_renda_variavel">Reddito Variabile</string>
+    <string name="label_favorito">Segna come preferito</string>
+    <string name="label_anotacoes">Note</string>
+    <string name="hint_anotacoes">Osservazioni sull\'asset…</string>
+    <string name="btn_salvar">Salva</string>
+    <string name="btn_limpar">Pulisci</string>
+    <string name="toast_limpar">Modulo pulito</string>
+    <string name="toast_salvo">Asset salvato</string>
+    <string name="toast_atualizado">Asset aggiornato</string>
+    <string name="erro_nome_obrigatorio">Il nome del prodotto è obbligatorio</string>
+    <string name="erro_valor_invalido">Valore iniziale non valido</string>
+    <string name="erro_tipo_renda">Seleziona un tipo di reddito</string>
+    <string name="erro_formulario">Errore: correggi i campi evidenziati</string>
+
+    <!-- Sobre Activity -->
+    <string name="autoria_versao">Versione 1.0.0</string>
+    <string name="autoria_secao_sobre">INFORMAZIONI SULL\'APP</string>
+    <string name="autoria_desc_1">InvestmentApp è un\'applicazione personale per il controllo degli investimenti. Consente di registrare broker, aggiungere asset finanziari e tracciare la cronologia di depositi e prelievi.</string>
+    <string name="autoria_desc_2">Sviluppato come progetto accademico per il corso di Sviluppo Java per Dispositivi Mobili, con un focus sull\'usabilità minimalista.</string>
+    <string name="autoria_secao_dev">SVILUPPATORE</string>
+    <string name="autoria_dev_cargo">QA / Futura Dev</string>
+    <string name="autoria_secao_inst">ISTITUZIONE</string>
+    <string name="autoria_inst_nome">Università Tecnologica Federale del Paraná</string>
+    <string name="autoria_curso">Specializzazione in Tecnologia Java - Classe XXXIII</string>
+    <string name="autoria_disciplina">Corso: Sviluppo Java per Dispositivi Mobili</string>
+    <string name="autoria_bloco">Blocco 4</string>
+    <string name="autoria_direitos">© 2026 Tayssa Asakawa. Tutti i diritti riservati.</string>
+
+    <!-- Configurações Activity -->
+    <string name="title_configuracoes">Impostazioni</string>
+    <string name="config_ordenacao">ORDINAMENTO LISTA</string>
+    <string name="config_por_nome">Per nome (A–Z)</string>
+    <string name="config_por_valor">Per valore (dal più alto)</string>
+    <string name="config_por_categoria">Per categoria</string>
+    <string name="config_preferencias">PREFERENZE</string>
+    <string name="config_apenas_favoritos">Mostra solo i preferiti</string>
+    <string name="config_mostrar_valores">Mostra i valori nella lista</string>
+    <string name="config_salva">Impostazione salvata</string>
+    <string name="config_info">Le impostazioni vengono salvate automaticamente sul dispositivo.</string>
+
+    <!-- Toast messages -->
+    <string name="toast_item_clicado">Selezionato: %1$s</string>
+</resources>

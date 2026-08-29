@@ -23,7 +23,7 @@
             android:paddingTop="8dp"
             android:paddingBottom="28dp">
 
-            <!-- TODO:Logo (ImageView: substitua pelo drawable real) -->
+            <!-- TODO:Logo  -->
             <ImageView
                 android:id="@+id/iv_logo"
                 android:layout_width="72dp"
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Versão 1.0.0"
+                android:text="@string/autoria_versao"
                 android:textColor="@color/muted_foreground"
                 android:textSize="12sp" />
 
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:letterSpacing="0.12"
-                android:text="SOBRE O APP"
+                android:text="@string/autoria_secao_sobre"
                 android:textColor="@color/muted_foreground"
                 android:textSize="10sp" />
 
@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingMultiplier="1.5"
-                android:text="O InvestimentoApp é um aplicativo pessoal para controle de investimentos. Permite registrar corretoras, cadastrar ativos financeiros e acompanhar o histórico de aportes e resgates, mantendo o saldo de cada posição sempre atualizado."
+                android:text="@string/autoria_desc_1"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:lineSpacingMultiplier="1.5"
-                android:text="Desenvolvido como projeto acadêmico para a disciplina de Desenvolvimento Java Para Dispositivo Móveis, com foco em usabilidade minimalista e layout criado no Figma para aprendizado pessoal."
+                android:text="@string/autoria_desc_2"
                 android:textColor="@color/muted_foreground"
                 android:textSize="14sp" />
 
@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="14dp"
                 android:letterSpacing="0.12"
-                android:text="DESENVOLVEDOR"
+                android:text="@string/autoria_secao_dev"
                 android:textColor="@color/muted_foreground"
                 android:textSize="10sp" />
 
@@ -158,7 +158,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="QA / Futura Dev"
+                        android:text="@string/autoria_dev_cargo"
                         android:textColor="@color/muted_foreground"
                         android:textSize="12sp" />
 
@@ -239,7 +239,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:letterSpacing="0.12"
-                android:text="INSTITUIÇÃO"
+                android:text="@string/autoria_inst_nome"
                 android:textColor="@color/muted_foreground"
                 android:textSize="10sp" />
 
@@ -261,7 +261,7 @@
                     android:id="@+id/tv_inst_nome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Universidade Tecnológica Federal do Paraná"
+                    android:text="@string/autoria_inst_nome"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -298,7 +298,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="© 2026 Tayssa Asakawa · Todos os direitos reservados (chique falar isso)"
+            android:text="@string/autoria_direitos"
             android:textColor="@color/muted_foreground"
             android:textSize="11sp" />
 
