@@ -1,18 +1,65 @@
 package edu.utfpr.investimentoapp;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 
+@Entity(tableName = "ativos")
 public class Ativo implements Serializable {
+
+    public static final int RENDA_FIXA = 0;
+    public static final int RENDA_VARIAVEL = 1;
+
+    @PrimaryKey(autoGenerate = true)
     private int id;
+
     private String nomeProduto;
-    private String categoria;
-    private double saldoAtual;
-    private int idInstituicao;
+    private int categoria;
     private String instituicao;
-    private String tipoRenda;
+    private int tipoRenda;
     private boolean favorito;
     private double valorInicial;
     private String anotacoes;
+
+    public Ativo() {
+    }
+
+    @Ignore
+    public Ativo(String nomeProduto, int categoria, String instituicao, int tipoRenda, boolean favorito, double valorInicial, String anotacoes) {
+        this.nomeProduto = nomeProduto;
+        this.categoria = categoria;
+        this.instituicao = instituicao;
+        this.tipoRenda = tipoRenda;
+        this.favorito = favorito;
+        this.valorInicial = valorInicial;
+        this.anotacoes = anotacoes;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
+
+    public int getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(int categoria) {
+        this.categoria = categoria;
+    }
 
     public String getInstituicao() {
         return instituicao;
@@ -22,11 +69,11 @@ public class Ativo implements Serializable {
         this.instituicao = instituicao;
     }
 
-    public String getTipoRenda() {
+    public int getTipoRenda() {
         return tipoRenda;
     }
 
-    public void setTipoRenda(String tipoRenda) {
+    public void setTipoRenda(int tipoRenda) {
         this.tipoRenda = tipoRenda;
     }
 
@@ -52,57 +99,6 @@ public class Ativo implements Serializable {
 
     public void setAnotacoes(String anotacoes) {
         this.anotacoes = anotacoes;
-    }
-
-    public Ativo() {
-    }
-
-    public Ativo(int id, String nomeProduto, String categoria, double saldoAtual, int idInstituicao) {
-        this.id = id;
-        this.nomeProduto = nomeProduto;
-        this.categoria = categoria;
-        this.saldoAtual = saldoAtual;
-        this.idInstituicao = idInstituicao;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNomeProduto() {
-        return nomeProduto;
-    }
-
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public double getSaldoAtual() {
-        return saldoAtual;
-    }
-
-    public void setSaldoAtual(double saldoAtual) {
-        this.saldoAtual = saldoAtual;
-    }
-
-    public int getIdInstituicao() {
-        return idInstituicao;
-    }
-
-    public void setIdInstituicao(int idInstituicao) {
-        this.idInstituicao = idInstituicao;
     }
 
     @Override

@@ -86,8 +86,6 @@ public class CadastroActivity extends AppCompatActivity {
 
     // ── Lógica do formulário ──────────────────────────────────────────────────
     private void salvar() {
-        boolean valido = true;
-
         String nome = etNomeProduto.getText().toString().trim();
         if (TextUtils.isEmpty(nome)) {
             Toast.makeText(getApplicationContext(), R.string.erro_nome_obrigatorio, Toast.LENGTH_SHORT).show();
@@ -111,38 +109,23 @@ public class CadastroActivity extends AppCompatActivity {
             return;
         }
 
-        String categoria = spinnerCategoria.getSelectedItem().toString();
-        String instituicao = spinnerInstituicao.getSelectedItem().toString();
-        String tipoRenda = rbRendaFixa.isChecked()
-                ? getString(R.string.radio_renda_fixa)
-                : getString(R.string.radio_renda_variavel);
-        boolean favorito = cbFavorito.isChecked();
-        String anotacoes = etAnotacoes.getText().toString().trim();
-
-        Ativo ativo;
-        if (ativoEmEdicao != null) {
-            ativo = ativoEmEdicao;
-        } else {
-            ativo = new Ativo();
-        }
+        Ativo ativo = (ativoEmEdicao != null) ? ativoEmEdicao : new Ativo();
         ativo.setNomeProduto(nome);
-        ativo.setCategoria(categoria);
-        ativo.setInstituicao(instituicao);
-        ativo.setTipoRenda(tipoRenda);
-        ativo.setFavorito(favorito);
+        ativo.setCategoria(spinnerCategoria.getSelectedItemPosition());
+        ativo.setInstituicao(spinnerInstituicao.getSelectedItem().toString());
+        ativo.setTipoRenda(rbRendaFixa.isChecked() ? Ativo.RENDA_FIXA : Ativo.RENDA_VARIAVEL);
+        ativo.setFavorito(cbFavorito.isChecked());
         ativo.setValorInicial(valor);
-        ativo.setAnotacoes(anotacoes);
+        ativo.setAnotacoes(etAnotacoes.getText().toString().trim());
 
-        // Devolve resultado para ListagemActivity
         Intent result = new Intent();
         result.putExtra(EXTRA_ATIVO, ativo);
         result.putExtra(EXTRA_MODO, modo);
         setResult(RESULT_OK, result);
 
-        String msg = modo == MODO_EDITAR
-                ? getString(R.string.toast_atualizado)
-                : getString(R.string.toast_salvo);
-        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),
+                modo == MODO_EDITAR ? R.string.toast_atualizado : R.string.toast_salvo,
+                Toast.LENGTH_SHORT).show();
         finish();
     }
 
@@ -150,17 +133,13 @@ public class CadastroActivity extends AppCompatActivity {
         etNomeProduto.setText("");
         etValorInicial.setText("");
         etAnotacoes.setText("");
-
         rgTipoRenda.clearCheck();
-
         cbFavorito.setChecked(false);
-
         spinnerCategoria.setSelection(0);
         spinnerInstituicao.setSelection(0);
-
         etNomeProduto.requestFocus();
 
-        Toast.makeText(this, R.string.toast_limpar, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), R.string.toast_limpar, Toast.LENGTH_SHORT).show();
     }
 
     private void preencherFormulario(Ativo a) {
@@ -170,12 +149,8 @@ public class CadastroActivity extends AppCompatActivity {
         etAnotacoes.setText(a.getAnotacoes());
         cbFavorito.setChecked(a.isFavorito());
 
-        String[] cats = getResources().getStringArray(R.array.categorias);
-        for (int i = 0; i < cats.length; i++) {
-            if (cats[i].equals(a.getCategoria())) {
-                spinnerCategoria.setSelection(i);
-                break;
-            }
+        if (a.getCategoria() >= 0 && a.getCategoria() < spinnerCategoria.getCount()) {
+            spinnerCategoria.setSelection(a.getCategoria());
         }
 
         String[] insts = getResources().getStringArray(R.array.instituicoes);
@@ -186,9 +161,9 @@ public class CadastroActivity extends AppCompatActivity {
             }
         }
 
-        if (getString(R.string.radio_renda_fixa).equals(a.getTipoRenda())) {
+        if (a.getTipoRenda() == Ativo.RENDA_FIXA) {
             rbRendaFixa.setChecked(true);
-        } else if (getString(R.string.radio_renda_variavel).equals(a.getTipoRenda())) {
+        } else {
             rbRendaVariavel.setChecked(true);
         }
     }

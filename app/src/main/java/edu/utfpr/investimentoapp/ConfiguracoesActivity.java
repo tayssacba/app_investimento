@@ -55,7 +55,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
         cbApenasFavoritos.setChecked(prefs.getBoolean(PREF_FAV, false));
         cbMostrarValores.setChecked(prefs.getBoolean(PREF_VALS, true));
 
-        // Listeners — persiste mudanças via SharedPreferences imediatamente
+        // Listeners — persiste mudanças via SharedPreferences
         rgOrdenacao.setOnCheckedChangeListener((group, checkedId) -> {
             String novo;
             if (checkedId == R.id.rb_ordenar_valor) novo = "valor";

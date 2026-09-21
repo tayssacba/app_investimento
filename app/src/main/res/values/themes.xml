@@ -13,7 +13,6 @@
         <item name="android:statusBarColor">@color/background</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">@color/background</item>
-        <item name="android:fontFamily">sans-serif</item>
     </style>
 
     <style name="TextAppearance.Label" parent="TextAppearance.MaterialComponents.Caption">

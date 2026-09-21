@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Categorias de ativo (Spinner) -->
+    <!-- Categorias (Spinner). A POSIÇÃO é o que fica gravada no banco; a ordem deve ser igual em todos os idiomas -->
     <string-array name="categorias">
-        <item>Renda Fixa</item>
-        <item>Ações</item>
-        <item>FIIs</item>
-        <item>Cripto</item>
-        <item>Internacional</item>
-        <item>Outros</item>
+        <item>Fixed income</item>
+        <item>Stocks</item>
+        <item>FIIs (REITs)</item>
+        <item>Crypto</item>
+        <item>International</item>
+        <item>Other</item>
     </string-array>
 
-    <!-- Instituições / Corretoras (Spinner) -->
-    <string-array name="instituicoes">
+    <!-- Nomes de instituições-->
+    <string-array name="instituicoes" translatable="false">
         <item>XP Investimentos</item>
         <item>Nubank</item>
         <item>Inter</item>
@@ -25,8 +25,8 @@
         <item>Easynvest</item>
     </string-array>
 
-    <!-- Nomes dos 10 ativos pré-carregados -->
-    <string-array name="ativos_nomes">
+    <!-- 10 ativos de exemplo, carregados no Room na primeira execução -->
+    <string-array name="ativos_nomes" translatable="false">
         <item>Tesouro Selic 2027</item>
         <item>PETR4</item>
         <item>MXRF11</item>
@@ -38,23 +38,19 @@
         <item>LCA Itaú 92% CDI</item>
         <item>HGLG11</item>
     </string-array>
-
-    <!-- Categorias dos 10 ativos pré-carregados (índices mapeados para categorias[]) -->
-    <string-array name="ativos_categorias">
-        <item>Renda Fixa</item>
-        <item>Ações</item>
-        <item>FIIs</item>
-        <item>Renda Fixa</item>
-        <item>Internacional</item>
-        <item>Cripto</item>
-        <item>Renda Fixa</item>
-        <item>Ações</item>
-        <item>Renda Fixa</item>
-        <item>FIIs</item>
-    </string-array>
-
-    <!-- Instituições dos 10 ativos -->
-    <string-array name="ativos_instituicoes">
+    <integer-array name="ativos_categorias">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+        <item>4</item>
+        <item>3</item>
+        <item>0</item>
+        <item>1</item>
+        <item>0</item>
+        <item>2</item>
+    </integer-array>
+    <string-array name="ativos_instituicoes" translatable="false">
         <item>XP Investimentos</item>
         <item>XP Investimentos</item>
         <item>Nubank</item>
@@ -66,23 +62,19 @@
         <item>Itaú</item>
         <item>BTG Pactual</item>
     </string-array>
-
-    <!-- Tipo de renda dos 10 ativos -->
-    <string-array name="ativos_tipos_renda">
-        <item>Renda Fixa</item>
-        <item>Renda Variável</item>
-        <item>Renda Variável</item>
-        <item>Renda Fixa</item>
-        <item>Renda Variável</item>
-        <item>Renda Variável</item>
-        <item>Renda Fixa</item>
-        <item>Renda Variável</item>
-        <item>Renda Fixa</item>
-        <item>Renda Variável</item>
-    </string-array>
-
-    <!-- Valores iniciais dos 10 ativos (em string, converter para double no Java) -->
-    <string-array name="ativos_valores">
+    <integer-array name="ativos_tipos_renda">
+        <item>0</item>
+        <item>1</item>
+        <item>1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>0</item>
+        <item>1</item>
+    </integer-array>
+    <string-array name="ativos_valores" translatable="false">
         <item>14820.00</item>
         <item>19210.00</item>
         <item>12288.00</item>
@@ -94,33 +86,28 @@
         <item>6000.00</item>
         <item>9200.00</item>
     </string-array>
-
-    <!-- Anotações dos 10 ativos -->
+    <string-array name="ativos_favoritos" translatable="false">
+        <item>true</item>
+        <item>false</item>
+        <item>true</item>
+        <item>false</item>
+        <item>true</item>
+        <item>false</item>
+        <item>false</item>
+        <item>true</item>
+        <item>false</item>
+        <item>false</item>
+    </string-array>
     <string-array name="ativos_anotacoes">
-        <item>Reserva de emergência</item>
+        <item>Emergency fund</item>
         <item></item>
-        <item>Dividendos mensais</item>
+        <item>Monthly dividends</item>
         <item></item>
-        <item>ETF S&amp;P 500</item>
-        <item>Alta volatilidade</item>
-        <item>Vence em 2027</item>
+        <item>S&amp;P 500 ETF</item>
+        <item>High volatility</item>
+        <item>Matures in 2027</item>
         <item></item>
-        <item>Isento de IR</item>
-        <item>FII de logística</item>
+        <item>Income-tax exempt</item>
+        <item>Logistics REIT</item>
     </string-array>
-
-    <!-- Favoritos (true/false) dos 10 ativos -->
-    <string-array name="ativos_favoritos">
-        <item>true</item>
-        <item>false</item>
-        <item>true</item>
-        <item>false</item>
-        <item>true</item>
-        <item>false</item>
-        <item>false</item>
-        <item>true</item>
-        <item>false</item>
-        <item>false</item>
-    </string-array>
-
 </resources>

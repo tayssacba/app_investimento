@@ -12,32 +12,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InvstApp">
 
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-
-        <activity
-            android:name=".AutoriaActivity"
-            android:exported="false"
-            android:parentActivityName=".ListaInvestimentosActivity" />
-
-        <activity
-            android:name=".CadastroActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ConfiguracoesActivity"
-            android:exported="false" />
-
+        <!-- Activity principal (LAUNCHER): listagem dos ativos gravados no Room -->
         <activity
             android:name=".ListaInvestimentosActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="@string/title_listagem">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Activities secundárias: pai = listagem (botão Up) -->
+        <activity
+            android:name=".CadastroActivity"
+            android:exported="false"
+            android:label="@string/title_cadastro"
+            android:parentActivityName=".ListaInvestimentosActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ConfiguracoesActivity"
+            android:exported="false"
+            android:label="@string/title_configuracoes"
+            android:parentActivityName=".ListaInvestimentosActivity" />
+
+        <activity
+            android:name=".AutoriaActivity"
+            android:exported="false"
+            android:label="@string/menu_sobre"
+            android:parentActivityName=".ListaInvestimentosActivity" />
 
     </application>
 </manifest>
