@@ -1,43 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Idioma: Português do Brasil -->
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Idioma opcional: Português do Brasil -->
 <resources>
-    <string name="app_name">Invst.app</string>
-    <string name="app_version">Versão 1.0.0</string>
-
-    <!-- Navegação -->
-    <string name="nav_listagem">Ativos</string>
-    <string name="nav_sobre">Sobre</string>
-    <string name="nav_config">Config</string>
-
-    <!-- Listagem Activity -->
-    <string name="title_listagem">Meus Ativos</string>
+    <string name="title_listagem">Meus ativos</string>
+    <string name="title_cadastro">Cadastrar ativo</string>
+    <string name="title_editar">Editar ativo</string>
+    <string name="title_configuracoes">Configurações</string>
     <string name="menu_adicionar">Adicionar</string>
-    <string name="menu_sobre">Sobre</string>
     <string name="menu_configuracoes">Configurações</string>
-    <string name="patrimonio_total">Patrimônio total</string>
-    <string name="nenhum_ativo">Nenhum ativo encontrado.</string>
-    <string name="btn_adicionar">Adicionar</string>
-
-    <!-- Menu contextual -->
+    <string name="menu_sobre">Sobre</string>
     <string name="menu_editar">Editar</string>
     <string name="menu_excluir">Excluir</string>
-    <string name="confirm_excluir_titulo">Excluir ativo</string>
-    <string name="confirm_excluir_msg">Tem certeza que deseja excluir este ativo?</string>
+    <string name="patrimonio_total">Patrimônio total</string>
+    <string name="nenhum_ativo">Nenhum ativo encontrado.</string>
+    <string name="confirm_excluir_titulo">Confirmar exclusão</string>
     <string name="confirm_sim">Sim</string>
     <string name="confirm_nao">Não</string>
-    <string name="toast_excluido">Ativo excluído</string>
-
-    <!-- Cadastro Activity -->
-    <string name="title_cadastro">Cadastrar Ativo</string>
-    <string name="title_editar">Editar Ativo</string>
-    <string name="label_nome_produto">Nome do Produto *</string>
+    <string name="toast_item_clicado">Selecionado: %1$s</string>
+    <string name="cd_favorito">Favorito</string>
+    <string name="cd_logo">Logo do app</string>
+    <string name="cd_email">E-mail</string>
+    <string name="cd_linkedin">LinkedIn</string>
+    <string name="cd_utfpr">Logo da UTFPR</string>
+    <string name="cd_grafico">Distribuição da carteira por categoria</string>
+    <string name="label_nome_produto">Nome do produto *</string>
     <string name="hint_nome_produto">Ex: Tesouro Selic 2027</string>
-    <string name="label_valor_inicial">Valor Inicial (R$) *</string>
+    <string name="label_valor_inicial">Valor inicial (R$) *</string>
     <string name="hint_valor">0,00</string>
     <string name="label_categoria">Categoria</string>
     <string name="label_instituicao">Instituição</string>
-    <string name="label_tipo_renda">Tipo de Renda *</string>
-    <string name="radio_renda_fixa">Renda Fixa</string>
-    <string name="radio_renda_variavel">Renda Variável</string>
+    <string name="label_tipo_renda">Tipo de renda *</string>
+    <string name="radio_renda_fixa">Renda fixa</string>
+    <string name="radio_renda_variavel">Renda variável</string>
     <string name="label_favorito">Marcar como favorito</string>
     <string name="label_anotacoes">Anotações</string>
     <string name="hint_anotacoes">Observações sobre o ativo…</string>
@@ -49,25 +42,6 @@
     <string name="erro_nome_obrigatorio">Nome do produto é obrigatório</string>
     <string name="erro_valor_invalido">Valor inicial inválido</string>
     <string name="erro_tipo_renda">Selecione o tipo de renda</string>
-    <string name="erro_formulario">Erro: corrija os campos destacados</string>
-
-    <!-- Sobre Activity -->
-    <!-- Tela de Autoria -->
-    <string name="autoria_versao">Versão 1.0.0</string>
-    <string name="autoria_secao_sobre">SOBRE O APP</string>
-    <string name="autoria_desc_1">O InvestmentApp é um aplicativo pessoal para controle de investimentos. Ele permite registrar corretoras, adicionar ativos financeiros e acompanhar o histórico de aportes e resgates.</string>
-    <string name="autoria_desc_2">Desenvolvido como um projeto acadêmico para a disciplina de Desenvolvimento Java para Dispositivos Móveis, com foco em usabilidade minimalista.</string>
-    <string name="autoria_secao_dev">DESENVOLVEDOR</string>
-    <string name="autoria_dev_cargo">QA / Futura Dev</string>
-    <string name="autoria_secao_inst">INSTITUIÇÃO</string>
-    <string name="autoria_inst_nome">Universidade Tecnológica Federal do Paraná</string>
-    <string name="autoria_curso">Especialização em Tecnologia Java - Turma XXXIII</string>
-    <string name="autoria_disciplina">Disciplina: Desenvolvimento Java para Dispositivos Móveis</string>
-    <string name="autoria_bloco">Bloco 4</string>
-    <string name="autoria_direitos">© 2026 Tayssa Asakawa. Todos os direitos reservados.</string>
-
-    <!-- Configurações Activity -->
-    <string name="title_configuracoes">Configurações</string>
     <string name="config_ordenacao">ORDENAÇÃO DA LISTA</string>
     <string name="config_por_nome">Por nome (A–Z)</string>
     <string name="config_por_valor">Por valor (maior primeiro)</string>
@@ -77,17 +51,33 @@
     <string name="config_mostrar_valores">Mostrar valores na lista</string>
     <string name="config_salva">Configuração salva</string>
     <string name="config_info">As configurações são salvas automaticamente no dispositivo.</string>
+    <string name="autoria_versao">Versão 1.0.0</string>
+    <string name="autoria_secao_sobre">SOBRE O APP</string>
+    <string name="autoria_desc_1">O Invst.app é um aplicativo pessoal para controle de investimentos. Ele permite cadastrar ativos financeiros, organizá-los por categoria e instituição, marcar favoritos e acompanhar o valor total da carteira.</string>
+    <string name="autoria_desc_2">Desenvolvido como projeto acadêmico para a disciplina de Desenvolvimento Java para Dispositivos Móveis, com foco em usabilidade minimalista.</string>
+    <string name="autoria_secao_dev">DESENVOLVEDOR</string>
+    <string name="autoria_dev_cargo">QA / Futura Dev</string>
+    <string name="autoria_secao_inst">INSTITUIÇÃO</string>
+    <string name="autoria_inst_nome">Universidade Tecnológica Federal do Paraná</string>
+    <string name="autoria_curso">Especialização em Tecnologia Java - Turma XXXIII</string>
+    <string name="autoria_disciplina">Disciplina: Desenvolvimento Java para Dispositivos Móveis</string>
+    <string name="autoria_bloco">Bloco 4</string>
+    <string name="autoria_direitos">© 2026 Tayssa Asakawa. Todos os direitos reservados.</string>
 
-    <!-- Toast -->
-    <string name="toast_item_clicado">Selecionado: %1$s</string>
-
-
-    <string-array name="n_ativos">
-        <item>Tesouro Selic 2026</item>
-        <item>CDB Banco Inter</item>
-        <item>LCI Caixa</item>
-        <item>Fundo DI Premium</item>
-        <item>PETR4</item>
-        <item>MXRF11</item>
-    </string-array>
+    <plurals name="qtd_ativos">
+        <item quantity="one">%d ativo</item>
+        <item quantity="other">%d ativos</item>
+    </plurals>
+    <plurals name="selecionados">
+        <item quantity="one">%d selecionado</item>
+        <item quantity="other">%d selecionados</item>
+    </plurals>
+    <plurals name="confirm_excluir_msg">
+        <item quantity="one">Tem certeza que deseja excluir este ativo?</item>
+        <item quantity="other">Tem certeza que deseja excluir estes %d ativos?</item>
+    </plurals>
+    <plurals name="toast_excluido">
+        <item quantity="one">Ativo excluído</item>
+        <item quantity="other">%d ativos excluídos</item>
+    </plurals>
 </resources>

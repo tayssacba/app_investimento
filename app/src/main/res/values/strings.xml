@@ -1,52 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Default language: English -->
+<!-- Ingles -->
 <resources>
-    <string name="app_name">Invst.app</string>
-    <string name="app_version">Version 1.0.0</string>
+    <string name="app_name" translatable="false">Invst.app</string>
+    <string name="autoria_nome" translatable="false">Tayssa Asakawa</string>
+    <string name="autoria_email" translatable="false">tayssa.asakawa@hotmail.com</string>
+    <string name="autoria_linkedin" translatable="false">linkedin.com/in/tayssa-asakawa</string>
 
-    <!-- Navigation -->
-    <string name="nav_listagem">Assets</string>
-    <string name="nav_sobre">About</string>
-    <string name="nav_config">Settings</string>
-    <string name="nav_home">Home</string>
-    <string name="nav_corretoras"></string>
-    <string name="nav_transacoes"></string>
-    <string name="nav_ativos"></string>
-
-
-    <!-- Listagem Activity -->
-    <string name="title_listagem">My Assets</string>
+    <string name="title_listagem">My assets</string>
+    <string name="title_cadastro">Add asset</string>
+    <string name="title_editar">Edit asset</string>
+    <string name="title_configuracoes">Settings</string>
     <string name="menu_adicionar">Add</string>
-    <string name="menu_sobre">About</string>
     <string name="menu_configuracoes">Settings</string>
-    <string name="patrimonio_total">Total portfolio</string>
-    <string name="nenhum_ativo">No assets found.</string>
-    <string name="btn_adicionar">Add</string>
-
-    <!-- Context menu -->
+    <string name="menu_sobre">About</string>
     <string name="menu_editar">Edit</string>
     <string name="menu_excluir">Delete</string>
-    <string name="confirm_excluir_titulo">Delete asset</string>
-    <string name="confirm_excluir_msg">Are you sure you want to delete this asset?</string>
+    <string name="patrimonio_total">Total portfolio</string>
+    <string name="nenhum_ativo">No assets found.</string>
+    <string name="confirm_excluir_titulo">Confirm deletion</string>
     <string name="confirm_sim">Yes</string>
     <string name="confirm_nao">No</string>
-    <string name="toast_excluido">Asset deleted</string>
-
-    <!-- Cadastro Activity -->
-    <string name="title_cadastro">Add Asset</string>
-    <string name="title_editar">Edit Asset</string>
-    <string name="label_nome_produto">Product Name *</string>
-    <string name="hint_nome_produto">Ex: Tesouro Selic 2027</string>
-    <string name="label_valor_inicial">Initial Value (R$) *</string>
+    <string name="toast_item_clicado">Selected: %1$s</string>
+    <string name="cd_favorito">Favorite</string>
+    <string name="cd_logo">App logo</string>
+    <string name="cd_email">Email</string>
+    <string name="cd_linkedin">LinkedIn</string>
+    <string name="cd_utfpr">UTFPR logo</string>
+    <string name="cd_grafico">Portfolio allocation by category</string>
+    <string name="label_nome_produto">Product name *</string>
+    <string name="hint_nome_produto">E.g.: Tesouro Selic 2027</string>
+    <string name="label_valor_inicial">Initial value (R$) *</string>
     <string name="hint_valor">0.00</string>
     <string name="label_categoria">Category</string>
     <string name="label_instituicao">Institution</string>
-    <string name="label_tipo_renda">Income Type *</string>
-    <string name="radio_renda_fixa">Fixed Income</string>
-    <string name="radio_renda_variavel">Variable Income</string>
+    <string name="label_tipo_renda">Income type *</string>
+    <string name="radio_renda_fixa">Fixed income</string>
+    <string name="radio_renda_variavel">Variable income</string>
     <string name="label_favorito">Mark as favorite</string>
     <string name="label_anotacoes">Notes</string>
-    <string name="hint_anotacoes">Observations about the asset…</string>
+    <string name="hint_anotacoes">Notes about the asset…</string>
     <string name="btn_salvar">Save</string>
     <string name="btn_limpar">Clear</string>
     <string name="toast_limpar">Form cleared</string>
@@ -55,12 +47,18 @@
     <string name="erro_nome_obrigatorio">Product name is required</string>
     <string name="erro_valor_invalido">Invalid initial value</string>
     <string name="erro_tipo_renda">Please select an income type</string>
-    <string name="erro_formulario">Error: please fix the highlighted fields</string>
-
-    <!-- Tela de Autoria -->
+    <string name="config_ordenacao">LIST ORDER</string>
+    <string name="config_por_nome">By name (A–Z)</string>
+    <string name="config_por_valor">By value (highest first)</string>
+    <string name="config_por_categoria">By category</string>
+    <string name="config_preferencias">PREFERENCES</string>
+    <string name="config_apenas_favoritos">Show only favorites</string>
+    <string name="config_mostrar_valores">Show values in the list</string>
+    <string name="config_salva">Setting saved</string>
+    <string name="config_info">Settings are saved automatically on this device.</string>
     <string name="autoria_versao">Version 1.0.0</string>
     <string name="autoria_secao_sobre">ABOUT THE APP</string>
-    <string name="autoria_desc_1">InvestmentApp is a personal application for investment control. It allows registering brokers, adding financial assets, and tracking the history of deposits and withdrawals.</string>
+    <string name="autoria_desc_1">Invst.app is a personal app for controlling investments. It lets you register financial assets, organize them by category and institution, mark favorites and follow the total value of your portfolio.</string>
     <string name="autoria_desc_2">Developed as an academic project for the Mobile Java Development course, focusing on minimalist usability.</string>
     <string name="autoria_secao_dev">DEVELOPER</string>
     <string name="autoria_dev_cargo">QA / Future Dev</string>
@@ -71,28 +69,20 @@
     <string name="autoria_bloco">Block 4</string>
     <string name="autoria_direitos">© 2026 Tayssa Asakawa. All rights reserved.</string>
 
-    <!-- Configurações Activity -->
-    <string name="title_configuracoes">Settings</string>
-    <string name="config_ordenacao">LIST ORDERING</string>
-    <string name="config_por_nome">By name (A–Z)</string>
-    <string name="config_por_valor">By value (highest first)</string>
-    <string name="config_por_categoria">By category</string>
-    <string name="config_preferencias">PREFERENCES</string>
-    <string name="config_apenas_favoritos">Show only favorites</string>
-    <string name="config_mostrar_valores">Show values in list</string>
-    <string name="config_salva">Setting saved</string>
-    <string name="config_info">Settings are automatically saved to the device.</string>
-
-    <!-- Toast messages -->
-    <string name="toast_item_clicado">Selected: %1$s</string>
-
-    <!-- Arrays Mockados -->
-    <string-array name="n_ativos">
-        <item>Treasury Bond 2026</item>
-        <item>Inter Bank CDB</item>
-        <item>Caixa LCI</item>
-        <item>DI Premium Fund</item>
-        <item>PETR4</item>
-        <item>MXRF11</item>
-    </string-array>
+    <plurals name="qtd_ativos">
+        <item quantity="one">%d asset</item>
+        <item quantity="other">%d assets</item>
+    </plurals>
+    <plurals name="selecionados">
+        <item quantity="one">%d selected</item>
+        <item quantity="other">%d selected</item>
+    </plurals>
+    <plurals name="confirm_excluir_msg">
+        <item quantity="one">Are you sure you want to delete this asset?</item>
+        <item quantity="other">Are you sure you want to delete these %d assets?</item>
+    </plurals>
+    <plurals name="toast_excluido">
+        <item quantity="one">Asset deleted</item>
+        <item quantity="other">%d assets deleted</item>
+    </plurals>
 </resources>
